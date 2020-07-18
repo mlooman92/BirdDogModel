@@ -1,0 +1,68 @@
+@startuml
+class java.math.BigDecimal
+class java.time.DayOfWeek
+class java.time.Duration
+class java.time.LocalDateTime
+class java.util.Date
+class java.util.List
+interface org.birddog.model.Activity
+interface org.birddog.model.Agreement
+interface org.birddog.model.Appointment
+interface org.birddog.model.Asset
+interface org.birddog.model.Datum
+interface org.birddog.model.Event
+interface org.birddog.model.Item
+interface org.birddog.model.ItemType
+interface org.birddog.model.Labor
+interface org.birddog.model.Opportunity
+interface org.birddog.model.Organization
+interface org.birddog.model.Party
+interface org.birddog.model.PartyAlias
+interface org.birddog.model.Performance
+interface org.birddog.model.Person
+interface org.birddog.model.Plan
+interface org.birddog.model.PlanStatusUpdate
+interface org.birddog.model.PlanTransition
+interface org.birddog.model.Project
+interface org.birddog.model.Relationship
+interface org.birddog.model.RelationshipType
+interface org.birddog.model.Task
+interface org.birddog.model.Transition
+org.birddog.model.Activity ..> java.time.LocalDateTime
+org.birddog.model.Activity --|> org.birddog.model.Item
+org.birddog.model.Agreement --|> org.birddog.model.Item
+org.birddog.model.Appointment --|> org.birddog.model.Plan
+org.birddog.model.Asset --|> org.birddog.model.Item
+org.birddog.model.Datum --|> org.birddog.model.Item
+org.birddog.model.Event ..> java.time.LocalDateTime
+org.birddog.model.Event --|> org.birddog.model.Item
+org.birddog.model.ItemType ..> java.util.List
+org.birddog.model.Labor ..> java.util.List
+org.birddog.model.Labor --|> org.birddog.model.Asset
+org.birddog.model.Opportunity ..> java.math.BigDecimal
+org.birddog.model.Opportunity --|> org.birddog.model.Project
+org.birddog.model.Organization --|> org.birddog.model.Party
+org.birddog.model.Party --|> org.birddog.model.Item
+org.birddog.model.PartyAlias --|> org.birddog.model.Datum
+org.birddog.model.Performance ..> java.time.DayOfWeek
+org.birddog.model.Performance ..> java.time.Duration
+org.birddog.model.Performance ..> java.time.LocalDateTime
+org.birddog.model.Performance --|> org.birddog.model.Activity
+org.birddog.model.Person --|> org.birddog.model.Party
+org.birddog.model.Plan ..> java.time.LocalDateTime
+org.birddog.model.Plan ..> java.util.List
+org.birddog.model.Plan --|> org.birddog.model.Activity
+org.birddog.model.PlanStatusUpdate ..> java.time.LocalDateTime
+org.birddog.model.PlanStatusUpdate ..> java.util.Date
+org.birddog.model.PlanStatusUpdate --|> org.birddog.model.Datum
+org.birddog.model.PlanTransition ..> java.time.LocalDateTime
+org.birddog.model.PlanTransition --|> org.birddog.model.Event
+org.birddog.model.Project ..> java.time.LocalDateTime
+org.birddog.model.Project --|> org.birddog.model.Plan
+org.birddog.model.RelationshipType --|> org.birddog.model.ItemType
+org.birddog.model.Task ..> java.time.Duration
+org.birddog.model.Task ..> java.time.LocalDateTime
+org.birddog.model.Task ..> java.util.List
+org.birddog.model.Task --|> org.birddog.model.Plan
+org.birddog.model.Transition --|> org.birddog.model.Datum
+@enduml
